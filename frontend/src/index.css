@@ -1,5 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Arimo', sans-serif;
 }
