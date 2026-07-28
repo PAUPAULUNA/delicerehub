@@ -1,0 +1,26 @@
+.body {
+    flex: 1;
+    background: #1f1f1f;
+    height: calc(100vh - 5rem);
+    overflow: hidden;
+    display: flex;
+    gap: 3px;
+}
+.left-section {    
+    flex-grow: 3;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    background: #0e0e0e;
+}
+.info-Cards{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+.right-section {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    background: #0e0e0e;
+}

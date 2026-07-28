@@ -10,6 +10,7 @@
     min-height:100vh;
     width: 250px;
 }
+
 .logo{
     display: flex;
     align-items: center;  

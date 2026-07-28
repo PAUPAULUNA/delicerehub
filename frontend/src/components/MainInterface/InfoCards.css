@@ -1,0 +1,57 @@
+.cards {
+    background-color: #1f1f1f;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 1.25rem;  
+    padding-bottom: 1.25rem; 
+    padding-left: 1rem;      
+    padding-right: 1rem;
+    border-radius: 0.5rem;     
+    width: 30%;
+}
+.info-card {
+    background-color: #1f1f1f;
+    padding: 1.25rem 1rem;
+    border-radius: 30px;
+    width: 100%;
+}
+.info-title {
+    color: #f5f5f5;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    margin-bottom: 10px;
+}
+.icon-button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+.green-btn {
+    background-color: #a7ff3f;
+}
+
+.yellow-btn {
+    background-color: #f6b100;
+}
+
+.purple-btn {
+    background-color: #3f12d1;
+}
+.numbers {
+    color: #f5f5f5;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+}
+.percentage{
+    color: #a7ff3f;
+}
+.compare {
+    color: #f5f5f5;
+    font-size: 1.125rem;
+    margin-top: 0.5rem;
+}

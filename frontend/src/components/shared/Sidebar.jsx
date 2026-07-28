@@ -4,6 +4,7 @@ import logo from '../../assets/logo.jpg';
 import userCircle from '../../assets/user.png';
 import logout from '../../assets/logout.png';
 import Notification from '../../assets/bell.png';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -18,11 +19,11 @@ const Sidebar = () => {
        
         <div>
             <ul className="sidebar-menu">
-                <li className="active">Dashboard</li>
-                <li>User Management</li>
-                <li>Sales Report</li>
-                <li>Inventory Control</li>
-                <li>System Settings</li>
+                <li className="active"><Link to="/Dashboard">Dashboard</Link></li>
+                <li><Link to="/UserManagement">User Management</Link></li>
+                <li><Link to="/SalesReport">Sales Report</Link></li>
+                <li><Link to="/Inventory">Inventory Control</Link></li>
+                <li><Link to="/Settings">System Settings</Link></li>
             </ul>
         </div>
          {/* USER */}
