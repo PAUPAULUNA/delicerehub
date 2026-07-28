@@ -8,21 +8,12 @@
 .container{
     display:flex;
     min-height:100vh;
-
-}
-.sidebar{
-    padding:15px;
-    width:260px;
-    background:#05070b;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    border-right:1px solid #ddd;
+    width: 250px;
 }
 .logo{
     display: flex;
     align-items: center;  
-    gap: 10px;             
+    gap: 10px;          
 }
 .logo img{
     width: 40px;    
@@ -62,8 +53,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius:5px;
 }
 .user-info {
+    cursor: pointer;
     color:#05070b;
     display:flex;
     gap:10px;
@@ -71,17 +64,29 @@
     margin-top:auto;
 }
 .user{
+    cursor: pointer;
     color:#05070b;
     border-radius:50%;
+}
+.user-info h1{
+    border-bottom: 1px solid #05070b;
 }
 .bell-icon {
     font-size: 24px;
     cursor: pointer;
 }
 .logout-btn{
+    display:flex;
     margin-top:20px;
     padding:12px;
     border:none;
-    background:#eee;
+    background:#e94343;
     cursor:pointer;
+    border-radius:10px;
+}
+.logout-btn span{
+    margin-left:10px;
+}
+.logout-btn:hover{
+    background:#ff0000;
 }

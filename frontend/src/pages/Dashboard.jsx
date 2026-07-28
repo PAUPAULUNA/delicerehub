@@ -3,9 +3,14 @@ import './Dashboard.css'
 const Dashboard = () => {
     
     return (
-        <div>
-            <h1></h1>
-        </div>
+         <div className="dashboard">
+      <section className="main-content">
+        {/* Left Section */}
+
+        {/* Right Section */}
+
+      </section>
+    </div>
     )
 }
 

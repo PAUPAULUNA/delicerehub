@@ -13,7 +13,7 @@ const Sidebar = () => {
         {/* LOGO */}
         <div className="logo">
             <img src={logo} className="logo" alt="delicere logo" />
-            <h2>Delicere</h2>
+            <h2>Delicere Hub</h2>
         </div>
        
         <div>
@@ -30,7 +30,7 @@ const Sidebar = () => {
             <div className="user-info">
                 <img src={userCircle} className="user" alt="avatar" />
                 <div>
-                    <h1><u>Pau Luna</u></h1>
+                    <h1>Administrator</h1>
                     <p>Admin</p>
                 </div>
             </div>
@@ -38,11 +38,10 @@ const Sidebar = () => {
                 <img src={Notification} className="bell-icon" alt="notification" />
             </div>
         </div>
-            <div className="logout-btn">
+            <button className="logout-btn">
                 <img src={logout} className="logout" alt="logout" />
-                <p>Sign Out</p>
-        </div>
-
+               <span> Log out </span>
+            </button>
     </aside>
 </div>
   )
