@@ -1,0 +1,126 @@
+.content-grid{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display:grid;
+    grid-template-columns:1.1fr 1.1fr 1.1fr;
+    gap:20px;
+}
+.panel{
+    background:#1f1f1f;
+    padding: 10px;
+    border-radius:15px;
+    height: 400px;
+    display:flex;
+    flex-direction:column;
+}
+
+.panel h3{
+    color:#f5f5f5;
+    font-size:20px;
+    margin-bottom:15px;
+}
+.search-bar{
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    gap: 1rem;   
+    background-color: #f5f5f5;
+    width: 250px;
+}
+.search {
+    color: #1f1f1f;
+    border-right: solid #1f1f1f;
+}
+.input {
+    background-color: #f5f5f5;
+    outline: none;
+    color: #1f1f1f;
+}
+.order-list, 
+.Wait-list, 
+.payment-list {
+    width:100%;
+    flex:1;
+    overflow-y:auto;
+}
+.listing-orders,
+.serving,
+.item-invoice {
+    width: 100%;
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.listing-orders li,
+.serving li,
+.item-invoice li{
+    color:#f5f5f5;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #ececec;
+}
+.name{
+    color:#f5f5f5;
+}
+.listing-orders li:last-child,
+.serving li:last-child,
+.item-invoice li:last-child{
+    border-bottom:none;
+}
+.status{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.status-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Right-align the text */
+}
+
+.status-text {
+    color: #f5f5f5;
+    line-height: 1;
+}
+.serving p, .item-invoice p{
+    color: #ababab;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+.update {
+    color: #ababab;
+    font-size: 0.75rem;
+    margin: 2px 0 0;
+}
+.pay-btn{
+    background:#a7ff3f;
+    color:#111;
+    border:none;
+    border-radius:10px;
+    padding:3px 10px;
+    cursor:pointer;
+    font-weight:500;
+    margin-right: 10px;
+}
+.order-list::-webkit-scrollbar,
+.Wait-list::-webkit-scrollbar,
+.payment-list::-webkit-scrollbar{
+    width:8px;
+}
+
+.order-list::-webkit-scrollbar-thumb,
+.Wait-list::-webkit-scrollbar-thumb,
+.payment-list::-webkit-scrollbar-thumb{
+    background:#a7ff3f;
+    border-radius:10px;
+}
+
+.order-list::-webkit-scrollbar-track,
+.Wait-list::-webkit-scrollbar-track,
+.payment-list::-webkit-scrollbar-track{
+    background:#2b2b2b;
+}

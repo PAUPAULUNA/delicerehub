@@ -19,7 +19,7 @@
     margin-top: 20px;
 }
 .right-section {
-    flex-grow: 2;
+    flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0%;
     background: #0e0e0e;
