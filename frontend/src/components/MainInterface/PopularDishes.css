@@ -1,0 +1,96 @@
+.popular-dish{
+    width:100%;
+    background:#1f1f1f;
+    border-radius:16px;
+    padding:20px;
+    color:#f5f5f5;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+.popular-dishes-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.popular-dishes-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.dishes-title{
+    font-size:1.3rem;
+    font-weight:600;
+    margin:0;
+}
+.view-all{
+    text-decoration:none;
+    color:#a7ff3f;
+    font-size:.9rem;
+    font-weight:500;
+    transition:.3s;
+}
+.view-all:hover{
+    color:#d3ff87;
+}
+.famous-dishes{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+.dish-card{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px;
+    border-radius:14px;
+    background:#2a2a2a;
+    transition:all .25s ease;
+    cursor:pointer;
+}
+.dish-card:hover{
+    background:#323232;
+    transform:translateY(-2px);
+}
+.dish-rank{
+    width:30px;
+    font-weight:600;
+    color:#888;
+    text-align:center;
+    flex-shrink:0;
+}
+.dish-info{
+    display:flex;
+    flex-direction:column;
+}
+.dish-image{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #a7ff3f;
+}
+.dish-title{
+    margin:0;
+    font-size:1rem;
+    font-weight:600;
+    color:#fff;
+}
+.number-of-orders{
+    margin-top:6px;
+    color:#bdbdbd;
+    font-size:.85rem;
+}
+.famous-dishes{
+    max-height:420px;
+    overflow-y:auto;
+}
+
+.famous-dishes::-webkit-scrollbar{
+    width:6px;
+}
+.famous-dishes::-webkit-scrollbar-thumb{
+    background:#a7ff3f;
+    border-radius:10px;
+}
+.famous-dishes::-webkit-scrollbar-track{
+    background:#2b2b2b;
+}

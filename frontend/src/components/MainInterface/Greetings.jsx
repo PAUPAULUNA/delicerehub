@@ -22,8 +22,8 @@ const Greetings = () => {
   return (
     <div className="greetings">
         <div className="greet-phrases">
-            <h1>Good Day, Admin!<img src={Greeting} className="greeting" alt="greeting" /></h1>
-            <p>Let's do our best today!</p>
+            <h1>Good Day, Pau!<img src={Greeting} className="greeting" alt="greeting" /></h1>
+            <p> Admin / Dashboard </p>
         </div>
         <div className="dateTime">
             <h1 className="time">{formatTime(dateTime)}</h1>

@@ -4,7 +4,7 @@
     height: calc(100vh - 5rem);
     overflow: hidden;
     display: flex;
-    gap: 3px;
+    gap: 0px;
 }
 .left-section {    
     flex-grow: 3;

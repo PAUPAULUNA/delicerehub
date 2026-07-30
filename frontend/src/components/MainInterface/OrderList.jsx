@@ -83,11 +83,11 @@ const OrderList = () => {
 				<div className="payment-list">
           <div className="payment">
 						<ul className="item-invoice">
-							<li><span className="name">Steve Rogers<p>Order #900</p></span><button className="pay-btn">Pending Pay</button></li>
-							<li><span className="name">Tony Stark<p>Order #112</p></span><button className="pay-btn">Pending Pay</button></li>
-							<li><span className="name">Bruce Banner<p>Order #223</p></span><button className="pay-btn">Pending Pay</button></li>
-							<li><span className="name">Stan Lee<p>Order #344</p></span><button className="pay-btn">Pending Pay</button></li>
-              				<li><span className="name">Sam Wilson<p>Order #456</p></span><button className="pay-btn">Pending Pay</button></li>
+							<li><span className="name">Steve Rogers<p>Order #900</p></span><button className="pay-btn">Payment</button></li>
+							<li><span className="name">Tony Stark<p>Order #112</p></span><button className="pay-btn">Payment</button></li>
+							<li><span className="name">Bruce Banner<p>Order #223</p></span><button className="pay-btn">Payment</button></li>
+							<li><span className="name">Stan Lee<p>Order #344</p></span><button className="pay-btn">Payment</button></li>
+              				<li><span className="name">Sam Wilson<p>Order #456</p></span><button className="pay-btn">Payment</button></li>
 						</ul>
 					</div>
 				</div>
