@@ -1,0 +1,262 @@
+/* ===========================
+   ORDER CARD CONTAINER
+=========================== */
+
+.OrderCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* ===========================
+   COMMON PANEL DESIGN
+=========================== */
+
+.order-list-summary,
+.Wait-list-summary,
+.payment-list-summary {
+  background: #1f1f1f;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: 0.3s ease;
+}
+
+.order-list-summary:hover,
+.Wait-list-summary:hover,
+.payment-list-summary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(168, 255, 42, 0.08);
+}
+
+/* ===========================
+   LIST RESET
+=========================== */
+
+.listing-orders-summary,
+.serving-summary,
+.item-invoice-summary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===========================
+   COMMON ROW
+=========================== */
+
+.listing-orders-summary li,
+.serving-summary li,
+.item-invoice-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.listing-orders-summary li:last-child,
+.serving-summary li:last-child,
+.item-invoice-summary li:last-child {
+  border: none;
+}
+
+/* ===========================
+   CUSTOMER NAME
+=========================== */
+
+.name-summary {
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-summary p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #9d9d9d;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.Quantity {
+  display: flex;
+}
+
+.quantity-image {
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+/* ===========================
+   STATUS
+=========================== */
+.amount {
+  display: flex;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.total{
+    margin-left: 4px;
+    color: #ffffff;
+}
+.status-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.status-info-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-text-summary {
+  font-weight: 600;
+  color: white;
+}
+
+.update-summary {
+  color: #bdbdbd;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ===========================
+   STATUS ICONS
+=========================== */
+
+.serve-summary,
+.prepare-summary {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #2b2b2b;
+  padding: 8px;
+}
+
+.serve {
+  box-shadow: 0 0 15px rgba(89, 255, 117, 0.25);
+}
+
+.prepare-summary {
+  box-shadow: 0 0 15px rgba(255, 203, 71, 0.25);
+}
+
+/* ===========================
+   SIMPLE ORDER STATUS
+=========================== */
+
+.listing-orders-summary .status {
+  color: #a8ff2a;
+  font-weight: 600;
+}
+
+/* ===========================
+   PAYMENT BUTTON
+=========================== */
+
+.pay-btn-summary {
+  border: none;
+  outline: none;
+
+  background: #a8ff2a;
+  color: #111;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  padding: 10px 22px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.pay-btn-summary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(168, 255, 42, 0.45);
+}
+
+.pay-btn-summary:active {
+  transform: scale(0.96);
+}
+
+/* ===========================
+   SCROLLABLE LISTS
+=========================== */
+
+.order-list-summary,
+.Wait-list-summary,
+.payment-list-summary {
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+/* Scrollbar */
+
+.order-list-summary::-webkit-scrollbar,
+.Wait-list-summary::-webkit-scrollbar,
+.payment-list-summary::-webkit-scrollbar {
+  width: 7px;
+}
+
+.order-list-summary::-webkit-scrollbar-thumb,
+.Wait-list-summary::-webkit-scrollbar-thumb,
+.payment-list-summary::-webkit-scrollbar-thumb {
+  background: #a8ff2a;
+  border-radius: 20px;
+}
+
+.order-list-summary::-webkit-scrollbar-track,
+.Wait-list-summary::-webkit-scrollbar-track,
+.payment-list-summary::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 1200px) {
+  .OrderCard {
+    grid-template-columns: 1fr;
+  }
+
+  .order-list-summary,
+  .Wait-list-summary,
+  .payment-list-summary {
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .listing-orders-summary li,
+  .serving-summary li,
+  .item-invoice-summary li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .pay-btn-summary {
+    width: 100%;
+  }
+}

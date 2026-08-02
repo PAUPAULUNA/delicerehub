@@ -24,7 +24,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <NavLink to="/Processing">Order Processing</NavLink>
+              <NavLink to="/Processing">Order Details</NavLink>
             </li>
 
             <li>

@@ -27,7 +27,7 @@ const Dashboard = () => {
             <InfoCards
               title="Total Sales"
               icon={<img src={money} className="money" alt="money" />}
-              number={50}
+              number={500}
               footerNum={4}
             />
             <InfoCards
