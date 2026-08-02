@@ -11,7 +11,9 @@
 }
 .sidebar{
     padding:15px;
-    width:260px;
+    width:320px;
+    min-width: 320px;
+    flex-shrink: 0;
     background:#05070b;
     display:flex;
     flex-direction:column;

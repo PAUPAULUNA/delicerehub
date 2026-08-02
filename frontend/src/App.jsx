@@ -9,6 +9,7 @@ import Inventory from "./pages/Admin/Inventory";
 import UserManagement from "./pages/Admin/UserManagement";
 import SalesReport from "./pages/Admin/SalesReport";
 import Settings from "./pages/Admin/Settings";
+import OrderModal from "./components/shared/OrderModal";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/usermanagement" element={<UserManagement />} />
           <Route path="/sales" element={<SalesReport />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/order-window" element={<OrderModal />} />
         </Routes>
       </div>
     </Router>

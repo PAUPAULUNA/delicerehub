@@ -4,17 +4,24 @@
 
 .OrderCard {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 25px;
   width: 100%;
   margin-top: 25px;
+}
+.serve-up-summary {
+    color:#1f1f1f;
+    background:#a7ff3f;
+    border:none;
+    border-radius:100px;
+    padding:3px 3px;
+    font-weight:500;
 }
 
 /* ===========================
    COMMON PANEL DESIGN
 =========================== */
 
-.order-list-summary,
 .Wait-list-summary,
 .payment-list-summary {
   background: #1f1f1f;
@@ -24,7 +31,6 @@
   transition: 0.3s ease;
 }
 
-.order-list-summary:hover,
 .Wait-list-summary:hover,
 .payment-list-summary:hover {
   transform: translateY(-3px);
@@ -35,7 +41,6 @@
    LIST RESET
 =========================== */
 
-.listing-orders-summary,
 .serving-summary,
 .item-invoice-summary {
   list-style: none;
@@ -47,7 +52,6 @@
    COMMON ROW
 =========================== */
 
-.listing-orders-summary li,
 .serving-summary li,
 .item-invoice-summary li {
   display: flex;
@@ -59,7 +63,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.listing-orders-summary li:last-child,
 .serving-summary li:last-child,
 .item-invoice-summary li:last-child {
   border: none;
@@ -89,6 +92,7 @@
   display: flex;
 }
 
+
 .quantity-image {
   background-color: #ffffff;
   border-radius: 10px;
@@ -108,9 +112,9 @@
   font-weight: 400;
   margin-bottom: 5px;
 }
-.total{
-    margin-left: 4px;
-    color: #ffffff;
+.total {
+  margin-left: 4px;
+  color: #ffffff;
 }
 .status-summary {
   display: flex;
@@ -162,11 +166,6 @@
    SIMPLE ORDER STATUS
 =========================== */
 
-.listing-orders-summary .status {
-  color: #a8ff2a;
-  font-weight: 600;
-}
-
 /* ===========================
    PAYMENT BUTTON
 =========================== */
@@ -203,7 +202,6 @@
    SCROLLABLE LISTS
 =========================== */
 
-.order-list-summary,
 .Wait-list-summary,
 .payment-list-summary {
   max-height: 520px;
@@ -212,20 +210,17 @@
 
 /* Scrollbar */
 
-.order-list-summary::-webkit-scrollbar,
 .Wait-list-summary::-webkit-scrollbar,
 .payment-list-summary::-webkit-scrollbar {
   width: 7px;
 }
 
-.order-list-summary::-webkit-scrollbar-thumb,
 .Wait-list-summary::-webkit-scrollbar-thumb,
 .payment-list-summary::-webkit-scrollbar-thumb {
   background: #a8ff2a;
   border-radius: 20px;
 }
 
-.order-list-summary::-webkit-scrollbar-track,
 .Wait-list-summary::-webkit-scrollbar-track,
 .payment-list-summary::-webkit-scrollbar-track {
   background: #2d2d2d;
@@ -240,7 +235,6 @@
     grid-template-columns: 1fr;
   }
 
-  .order-list-summary,
   .Wait-list-summary,
   .payment-list-summary {
     max-height: none;
@@ -248,7 +242,6 @@
 }
 
 @media (max-width: 768px) {
-  .listing-orders-summary li,
   .serving-summary li,
   .item-invoice-summary li {
     flex-direction: column;

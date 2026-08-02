@@ -7,27 +7,6 @@ import serving from "../../assets/accept.png";
 const OrderList = () => {
   return (
     <section className="content-grid">
-      {/* Order List */}
-      <div className="panel">
-        <h3>Order List</h3>
-        <div className="search-bar">
-          <img src={search} className="search" alt="Search" />
-          <input type="text" placeholder="search order" className="input" />
-        </div>
-
-        <div className="order-list">
-          <ul className="listing-orders">
-            <li>
-              <span className="name">Mark Smith</span>
-              <span className="status">Processing...</span>
-            </li>
-            <li>
-              <span className="name">Felix Moore</span>
-              <span className="status">Processing...</span>
-            </li>
-          </ul>
-        </div>
-      </div>
       {/* Wait List */}
       <div className="panel">
         <h3>Waiting</h3>
@@ -52,19 +31,7 @@ const OrderList = () => {
             </li>
             <li>
               <span className="name">
-                Jane Doe<p>Order #345</p>
-              </span>
-              <span className="status">
-                <img src={serving} className="serve" alt="Now Serving" />
-                <span className="status-info">
-                  <span className="status-text">Now Serving!</span>
-                  <span className="update">🟢Just now</span>
-                </span>
-              </span>
-            </li>
-            <li>
-              <span className="name">
-                Juan Dela Cruz<p>Order #678</p>
+                Jane Doe<p>Order #678</p>
               </span>
               <span className="status">
                 <img src={preparing} className="prepare" alt="Preparing" />

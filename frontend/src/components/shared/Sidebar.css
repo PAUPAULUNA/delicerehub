@@ -1,92 +1,212 @@
-@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Chango&family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Playwrite+GB+J:wght@400&display=swap");
+
+/* ==========================
+   RESET
+========================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.sidebar {
+  width: 280px;
+  min-height: 100vh;
+  background: #05070b;
+  border-right: 1px solid #2b2b2b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 16px;
   font-family: "Segoe UI", sans-serif;
 }
-.container {
+/* ==========================
+   TOP SECTION
+========================== */
+.sidebar-top {
   display: flex;
-  min-height: 100vh;
-  width: 250px;
+  flex-direction: column;
+  gap: 35px;
 }
+/* ==========================
+   LOGO
+========================== */
 
 .logo {
+  border-radius: 3px 3px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
+
 .logo img {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
+
 .logo h2 {
-  color: #e1f0f0;
-  margin: 0;
+  color: white;
+  font-size: 24px;
   font-family: "Playwrite GB J", cursive;
-  font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
 }
 
-.sidebar-menu li a {
-  display: block;
-  padding: 15px;
+/* ==========================
+   NAVIGATION
+========================== */
+
+.sidebar-nav {
+  width: 100%;
+}
+
+.sidebar-menu {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-menu li {
+  width: 100%;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 15px 18px;
+
+  color: #a6a9b5;
+
   text-decoration: none;
-  color: #8d94a3;
+
+  border-radius: 12px;
+
+  transition: 0.25s ease;
 }
 
-.sidebar-menu li a:hover {
+.menu-link:hover {
+  background: #a7ff3f;
+  color: #111;
+  font-weight: 600;
+}
+
+.menu-link.active {
   background: #a7ff3f;
   color: #111;
   font-weight: 700;
 }
 
-.sidebar-menu li a.active {
-  background: #a7ff3f;
-  color: #111;
-  font-weight: bold;
+/* ==========================
+   BOTTOM SECTION
+========================== */
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.bottom-section {
-  background: #eee;
+
+/* ==========================
+   USER CARD
+========================== */
+
+.user-card {
+  background: #1f1f1f;
+
+  border-radius: 10px;
+
+  padding: 12px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
 }
+
 .user-info {
-  cursor: pointer;
-  color: #05070b;
   display: flex;
-  gap: 10px;
   align-items: center;
-  margin-top: auto;
+  gap: 12px;
 }
+
 .user {
-  cursor: pointer;
-  color: #05070b;
+  width: 42px;
+  height: 42px;
+  background: #111;
   border-radius: 50%;
+  object-fit: cover;
 }
+
 .user-info h1 {
-  border-bottom: 1px solid #05070b;
+  font-size: 18px;
+  color: white;
+  border-bottom: 1px solid #444;
+  margin-bottom: 3px;
 }
-.bell-icon {
-  font-size: 24px;
-  cursor: pointer;
+
+.user-info p {
+  font-size: 14px;
+  color: #a6a9b5;
 }
-.logout-btn {
-  display: flex;
-  margin-top: 20px;
-  padding: 12px;
+
+.notification-btn {
   border: none;
-  background: #e94343;
+  background: transparent;
   cursor: pointer;
-  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.logout-btn span {
-  margin-left: 10px;
+
+.bell-icon {
+  width: 28px;
+  height: 28px;
 }
+
+/* ==========================
+   LOGOUT
+========================== */
+
+.logout-btn {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #dc2626;
+
+  color: #111;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .logout-btn:hover {
-  background: #ff0000;
+  background: #ef4444;
+}
+
+.logout {
+  width: 22px;
+  height: 22px;
 }

@@ -1,10 +1,8 @@
 .content-grid{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
+margin: 20px 10px 0px;
     display:grid;
-    grid-template-columns:1.1fr 1.1fr 1.1fr;
-    gap:20px;
+    grid-template-columns:repeat(2, 1fr);
+    gap: 20px;
 }
 .panel{
     background:#1f1f1f;
@@ -33,18 +31,17 @@
     border-right: solid #1f1f1f;
 }
 .input {
+    width: 50px;
     background-color: #f5f5f5;
     outline: none;
     color: #1f1f1f;
-}
-.order-list, 
+} 
 .Wait-list, 
 .payment-list {
     width:100%;
     flex:1;
     overflow-y:auto;
 }
-.listing-orders,
 .serving,
 .item-invoice {
     width: 100%;
@@ -52,7 +49,14 @@
     padding:0;
     margin:0;
 }
-.listing-orders li,
+.serve {
+    color:#1f1f1f;
+    background:#a7ff3f;
+    border:none;
+    border-radius:100px;
+    padding:3px 3px;
+    font-weight:500;
+}
 .serving li,
 .item-invoice li{
     color:#f5f5f5;
@@ -65,7 +69,6 @@
 .name{
     color:#f5f5f5;
 }
-.listing-orders li:last-child,
 .serving li:last-child,
 .item-invoice li:last-child{
     border-bottom:none;
@@ -110,20 +113,17 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(167, 255, 63, 0.5);
 }
-.order-list::-webkit-scrollbar,
 .Wait-list::-webkit-scrollbar,
 .payment-list::-webkit-scrollbar{
     width:8px;
 }
 
-.order-list::-webkit-scrollbar-thumb,
 .Wait-list::-webkit-scrollbar-thumb,
 .payment-list::-webkit-scrollbar-thumb{
     background:#a7ff3f;
     border-radius:10px;
 }
 
-.order-list::-webkit-scrollbar-track,
 .Wait-list::-webkit-scrollbar-track,
 .payment-list::-webkit-scrollbar-track{
     background:#2b2b2b;
