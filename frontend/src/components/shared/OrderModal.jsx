@@ -1,13 +1,22 @@
 import React from 'react'
-import Add from "../../assets/add.png";
 import "./OrderModal.css";
-import close from "../../assets/close.png";
 
-const OrderModal = () => {
+const OrderModal = ({title, onClose, isOpen, children}) => {
+  if(!isOpen) return null;
 
   return (
     <div className="OrderModal">
-        <h2>Modal Box</h2>
+        <div className="modal-content">
+            <div className="modal-header">
+                <h2 className="modal-title">{title}</h2>
+                <button className="close-button" onClick={onClose}>
+                  &times;
+                </button>
+            </div>
+            <div className="modal-body">
+                {children}
+            </div>
+        </div>
     </div>
   )
 }

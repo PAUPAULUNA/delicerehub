@@ -44,6 +44,33 @@
   font-weight: 700;
   color: white;
 }
+.customer-name-label {
+  display: block;
+  color: #ababab;
+  margin-bottom: 0.5rem; /* mb-2 = 8px */
+  font-size: 0.875rem; /* text-sm = 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 500; /* font-medium */
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem; /* 8px */
+  padding: 0.75rem;
+  padding-left: 1rem;  /* 16px */
+  padding-right: 1rem; /* 16px */
+
+  background-color: #333;
+}
+.customer-name {
+  background-color: transparent;
+  flex: 1;
+  color: #ffffff;
+  border: none;
+}
+.customer-name:focus {
+  outline: none;
+}
 
 /* Status Buttons */
 

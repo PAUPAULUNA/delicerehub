@@ -26,6 +26,7 @@ function App() {
           <Route path="/sales" element={<SalesReport />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/order-window" element={<OrderModal />} />
+          <Route path="*" element={<div>Not Found</div>} />
         </Routes>
       </div>
     </Router>
