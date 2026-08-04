@@ -57,9 +57,8 @@
   align-items: center;
   border-radius: 0.5rem; /* 8px */
   padding: 0.75rem;
-  padding-left: 1rem;  /* 16px */
+  padding-left: 1rem; /* 16px */
   padding-right: 1rem; /* 16px */
-
   background-color: #333;
 }
 .customer-name {
@@ -70,6 +69,78 @@
 }
 .customer-name:focus {
   outline: none;
+}
+.order-number-label {
+  display: block;
+  color: #ababab;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem; /* mb-2 = 8px */
+  font-size: 0.875rem; /* text-sm = 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 500; /* font-medium */
+}
+.order-number-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem; /* 8px */
+  padding: 0.75rem;
+  padding-left: 1rem; /* 16px */
+  padding-right: 1rem; /* 16px */
+  background-color: #333;
+}
+.order-number {
+  background-color: transparent;
+  flex: 1;
+  color: #ffffff;
+  border: none;
+}
+.order-number:focus {
+  outline: none;
+}
+.number-of-guests {
+  display: block;
+  margin-bottom: 0.5rem; /* mb-2 = 8px */
+  margin-top: 0.75rem; /* mt-3 = 12px */
+  font-size: 0.875rem; /* text-sm = 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 500; /* font-medium */
+  color: #ababab;
+}
+.guests-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f1f1f;
+  padding-left: 1rem; /* px-4 = 16px */
+  padding-right: 1rem;
+  padding-top: 0.75rem; /* py-3 = 12px */
+  padding-bottom: 0.75rem;
+  border-radius: 0.5rem; /* rounded-lg = 8px */
+}
+.decrement,
+.increment {
+  color: #a7ff3f;
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  cursor: pointer;
+}
+.guest-count {
+  color: white;
+}
+.submit-btn {
+  width: 100%;
+  background-color: #a8ff2a;
+  color: #111;
+  cursor: pointer;
+  border-radius: 0.5rem; /* 8px */
+  padding-top: 0.75rem; /* py-3 = 12px */
+  padding-bottom: 0.75rem; /* py-3 = 12px */
+  margin-top: 2rem; /* mt-8 = 32px */
+  transition: background-color 0.2s ease;
+}
+.submit-btn:hover {
+  background-color: #a7ff3f;
+  color: #111;
 }
 
 /* Status Buttons */
