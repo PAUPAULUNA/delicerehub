@@ -1,0 +1,47 @@
+.menu-row{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr
+    1fr
+    1fr
+    80px;
+
+    align-items:center;
+
+    padding:14px 20px;
+
+    border-bottom:1px solid #343434;
+
+}
+
+.menu-row:hover{
+
+    background:#2c2c2c;
+
+}
+
+.menu-row span{
+
+    color:white;
+
+}
+
+.menu-row button{
+
+    background:#95ff00;
+
+    color:black;
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}

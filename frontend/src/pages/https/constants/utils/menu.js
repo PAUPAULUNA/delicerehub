@@ -2442,3 +2442,5 @@ export const menu = [
     ],
   },
 ];
+
+export default menu;

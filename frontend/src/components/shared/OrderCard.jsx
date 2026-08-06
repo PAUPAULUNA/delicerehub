@@ -11,7 +11,7 @@ const OrderCard = () => {
         <ul className="serving-summary">
           <li>
             <span className="name-summary">
-              John Doe<p>Order #012 :</p>
+              John Doe<p>Order #12 :</p>
               <hr></hr>
               <div className="OrderDetails">
                 <p className="DateandTime">July 30, 2026 | 3:30 PM</p>

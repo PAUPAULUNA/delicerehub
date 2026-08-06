@@ -19,7 +19,7 @@ const OrderList = () => {
           <ul className="serving">
             <li>
               <span className="name">
-                John Doe<p>Order #012</p>
+                John Doe<p>Order #12</p>
               </span>
               <span className="status">
                 <img src={serving} className="serve" alt="Now Serving" />
