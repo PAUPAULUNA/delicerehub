@@ -10,6 +10,7 @@ import UserManagement from "./pages/Admin/UserManagement";
 import SalesReport from "./pages/Admin/SalesReport";
 import Settings from "./pages/Admin/Settings";
 import OrderModal from "./components/shared/OrderModal";
+import ActiveOrders from "./components/shared/ActiveOrders";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/sales" element={<SalesReport />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/order-window" element={<OrderModal />} />
+          <Route path="active-orders" element={<ActiveOrders />} />
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
       </div>

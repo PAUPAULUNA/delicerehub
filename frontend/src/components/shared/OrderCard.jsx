@@ -4,54 +4,52 @@ import preparing from "../../assets/wok.png";
 import serving from "../../assets/accept.png";
 import eat from "../../assets/eat.png";
 
-const OrderCard = () => {
+const getTimeAgo = (date) => {
+  const seconds = Math.floor((Date.now() - new Date(date)) / 1000);
+
+  if (seconds < 60) return "Just now";
+
+  const minutes = Math.floor(seconds / 60);
+
+  return `${minutes} min ago`;
+};
+
+const OrderCard = ({ orders = [] }) => {
   return (
     <div className="OrderCard">
       <div className="Wait-list-summary">
         <ul className="serving-summary">
-          <li>
-            <span className="name-summary">
-              John Doe<p>Order #12 :</p>
-              <hr></hr>
-              <div className="OrderDetails">
-                <p className="DateandTime">July 30, 2026 | 3:30 PM</p>
-                <p className="Quantity">
-                  <img src={eat} className="quantity-image" alt="eat" />5 items
-                </p>
-              </div>
-            </span>
-            <span className="status-summary">
-              <img src={serving} className="serve-up-summary" alt="Now Serving" />
-              <span className="status-info-summary">
-                <span className="status-text-summary">Now Serving!</span>
-                <span className="update-summary">🟢Just now</span>
+          {orders.map((order) => (
+            <li key={order.id}>
+              <span className="name-summary">
+                {order.customerName}
+                <p>Order #{order.orderNumber}</p>
+                <hr></hr>
+                <div className="OrderDetails">
+                  <p className="DateandTime">
+                    {new Date(order.createdAt).toLocaleDateString()} |
+                    {new Date(order.createdAt).toLocaleTimeString()}
+                  </p>
+                  <p className="Quantity">
+                    <img src={eat} className="quantity-image" alt="eat" />
+                    {order.itemCount} items
+                  </p>
+                </div>
               </span>
-            </span>
-          </li>
-
-          <li>
-            <span className="name-summary">
-              Jane Doe<p>Order #678 :</p>
-              <hr></hr>
-              <div className="OrderDetails">
-                <p className="DateandTime">July 30, 2026 | 4:00 PM</p>
-                <p className="Quantity">
-                  <img src={eat} className="quantity-image" alt="eat" />8 items
-                </p>
-              </div>
-            </span>
-            <span className="status-summary">
-              <img
-                src={preparing}
-                className="prepare-summary"
-                alt="Preparing"
-              />
-              <span className="status-info-summary">
-                <span className="status-text-summary">Preparing...</span>
-                <span className="update-summary">🟡5 mins ago</span>
+              <span className="status-summary">
+                <img
+                      src={order?.status === "Preparing" ? preparing : serving}
+                      alt={order.status}
+                    />
+                <span className="status-info-summary">
+                  <span className="status-text-summary">{order.status}</span>
+                  <span className="update-summary">
+                    {getTimeAgo(order.updatedAt)}
+                  </span>
+                </span>
               </span>
-            </span>
-          </li>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="payment-list-summary">

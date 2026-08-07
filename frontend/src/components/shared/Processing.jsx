@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Processing.css";
 import OrderCard from "../../components/shared/OrderCard";
 import OrderModal from "../../components/shared/OrderModal";
@@ -6,6 +6,7 @@ import Add from "../../assets/add.png";
 import tables from "../../pages/https/constants/utils/tables";
 import menu from "../../pages/https/constants/utils/menu";
 import MenuCard from "./MenuCard";
+import ActiveOrders from "./ActiveOrders";
 
 const Processing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -120,6 +121,112 @@ const Processing = () => {
 
   const total = orderData.items.reduce((sum, item) => sum + item.subtotal, 0);
 
+  const submitOrder = () => {
+    const total = orderData.items.reduce((sum, item) => sum + item.subtotal, 0);
+
+    const newOrder = {
+      id: Date.now(),
+
+      customerName: orderData.customerName,
+
+      orderNumber: orderData.orderNumber,
+
+      tableId: orderData.tableId,
+
+      guests: orderData.guests,
+
+      items: orderData.items,
+
+      itemCount: orderData.items.reduce((sum, item) => sum + item.quantity, 0),
+
+      total,
+
+      status: "Preparing",
+
+      createdAt: new Date(),
+
+      updatedAt: new Date(),
+    };
+
+    setActiveOrders((prev) => [...prev, newOrder]);
+
+    setOrderData({
+      customerName: "",
+      orderNumber: "",
+      guests: 1,
+      tableId: null,
+      items: [],
+    });
+
+    setStep(1);
+
+    closeModal();
+  };
+
+  const [activeOrders, setActiveOrders] = useState([]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveOrders((prev) =>
+        prev.map((order) => {
+          if (
+            order.status === "Preparing" &&
+            Date.now() - new Date(order.createdAt).getTime() >= 30000
+          ) {
+            return {
+              ...order,
+              status: "Now Serving",
+              updatedAt: new Date(),
+            };
+          }
+
+          return order;
+        }),
+      );
+       setActiveOrders(prev =>
+            prev.filter(order => {
+
+                if(order.status !== "Now Serving")
+                    return true;
+
+                return (
+                    Date.now() -
+                    new Date(order.updatedAt).getTime()
+                ) < 10000;
+
+            })
+        );
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const getTimeAgo = (date) => {
+
+    const seconds = Math.floor(
+        (Date.now() - new Date(date)) / 1000
+    );
+
+    if(seconds < 60)
+        return "Just now";
+
+    const minutes = Math.floor(seconds/60);
+
+    return `${minutes} min ago`;
+};
+const newOrder = {
+  customerName: orderData.customerName,
+  orderNumber: orderData.orderNumber,
+  tableId: orderData.tableId,
+  items: orderData.items,
+  itemCount: orderData.items.reduce((sum, item) => sum + item.quantity, 0),
+  total,
+  status: "Preparing",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+};
+const [orders, setOrders] = useState([]);
+
   return (
     <section className="process-order">
       <div className="order-taking">
@@ -215,7 +322,7 @@ const Processing = () => {
                     {tables.map((table) => (
                       <button
                         key={table.id}
-                        disabled={table.status === "occupied"}
+                        disabled={table.status === "Occupied"}
                         className={`table-card ${table.status} ${orderData.tableId === table.id ? "selected" : ""}`}
                         onClick={() =>
                           setOrderData((prev) => ({
@@ -371,7 +478,7 @@ const Processing = () => {
                 <div className="modal-footer">
                   <button onClick={() => setStep(3)}>Back</button>
 
-                  <button>Submit Order</button>
+                  <button onClick={submitOrder}>Submit Order</button>
                 </div>
               </>
             )}
@@ -400,7 +507,11 @@ const Processing = () => {
         </div>
 
         <div className="active-orders">
-          <OrderCard />
+          <OrderCard orders={activeOrders} />
+          <ActiveOrders
+    orders={orders}
+    setOrders={setOrders}
+/>
         </div>
       </div>
     </section>
