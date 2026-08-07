@@ -1,7 +1,7 @@
 import React from 'react'
 import './MenuCard.css'
 
-const MenuCard = ({ item, onAdd }) => {
+const MenuCard = ({ item, addToCart }) => {
   return (
     <>
             {item.sizes.map(size => (
@@ -17,7 +17,7 @@ const MenuCard = ({ item, onAdd }) => {
 
                     <span>₱{size.price.toFixed(2)}</span>
 
-                    <button>Add</button>
+                    <button onClick={() => addToCart(item, size)}>Add</button>
 
                 </div>
 

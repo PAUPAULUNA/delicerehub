@@ -205,7 +205,6 @@
   color: white;
 }
 .table-card p {
-
   font-size: 13px;
 
   color: #cfcfcf;
@@ -219,12 +218,36 @@
 }
 .modal-footer {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
+  gap: 24px;
+  border-top: 1px solid #333;
+  padding: 18px 24px;
+}
 
-  margin-top: 15px;
+.cart-summary {
+  display: flex;
+  gap: 40px;
+  margin-left: auto;
+  margin-right: 24px;
+}
+
+.cart-summary div {
+  text-align: center;
+  min-width: 80px;
+}
+
+.cart-summary strong {
+  display: block;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.cart-summary p {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 700;
 }
 .modal-footer button:first-child {
   background: #3a3a3a;
@@ -269,101 +292,298 @@
 
   opacity: 0.6;
 }
-.category-list{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding-bottom:15px;
-    margin-bottom:15px;
+/* ===========================
+   STEP 4 - CART
+=========================== */
 
-    scrollbar-width:none;
+.cart-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  background: #202020;
+  border: 1px solid #3b3b3b;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.category-list::-webkit-scrollbar{
-    display:none;
+/* Header */
+
+.cart-header {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.3fr 1fr 1.2fr 0.8fr;
+  align-items: center;
+
+  background: #2a2a2a;
+  color: #f5f5f5;
+
+  font-weight: 600;
+
+  padding: 15px 20px;
+
+  border-bottom: 1px solid #444;
 }
 
-.category-list button{
+/* Body */
 
-    padding:10px 20px;
-
-    border:none;
-    border-radius:8px;
-
-    background:#2d2d2d;
-    color:white;
-
-    cursor:pointer;
-
-    white-space:nowrap;
-
-    transition:.25s;
+.cart-body {
+  max-height: 420px;
+  overflow-y: auto;
 }
 
-.category-list button:hover{
+/* Each row */
 
-    background:#3b3b3b;
+.cart-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.3fr 1fr 1.2fr 0.8fr;
 
+  align-items: center;
+
+  padding: 14px 20px;
+
+  color: #f5f5f5;
+
+  border-bottom: 1px solid #2f2f2f;
+
+  transition: 0.2s;
 }
 
-.active-category{
-
-    background:#95ff00 !important;
-    color:black !important;
-    font-weight:bold;
-
+.cart-row:hover {
+  background: #2b2b2b;
 }
-.menu-table{
 
-    background:#232323;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
-
-    height:500px;
-
+.cart-row:last-child {
+  border-bottom: none;
 }
-.menu-table{
 
-    background:#232323;
+/* ===========================
+   Quantity Buttons
+=========================== */
 
-    border-radius:12px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
-
-    height:500px;
-
+.qty-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
-.table-header{
-    display:grid;
-    grid-template-columns: 2fr 1fr 1fr 100px;
 
-    align-items:center;
+.qty-controls button {
+  width: 30px;
+  height: 30px;
 
-    padding:14px 22px;
+  border: none;
+  border-radius: 8px;
 
-    background:#2b2b2b;
+  cursor: pointer;
 
-    font-weight:700;
-    color:#fff;
+  background: #ff8c00;
+  color: white;
 
-    border-bottom:1px solid #444;
+  font-size: 18px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.qty-controls button:hover {
+  background: #ff7300;
+}
+
+.qty-controls span {
+  width: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===========================
+   Remove Button
+=========================== */
+
+.remove-btn {
+  border: none;
+  background: #c62828;
+
+  color: white;
+
+  border-radius: 8px;
+
+  width: 34px;
+  height: 34px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.remove-btn:hover {
+  background: #a31515;
+}
+
+/* ===========================
+   Total Section
+=========================== */
+
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 20px;
+
+  background: #252525;
+
+  border-top: 1px solid #444;
+}
+
+.cart-total h3 {
+  color: #ffb347;
+
+  font-size: 24px;
+
+  margin: 0;
+}
+
+/* ===========================
+   Footer Buttons
+=========================== */
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.modal-footer button {
+  padding: 12px 26px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.modal-footer button:first-child {
+  background: #555;
+  color: white;
+}
+
+.modal-footer button:first-child:hover {
+  background: #6d6d6d;
+}
+
+.modal-footer button:last-child {
+  background: #ff8c00;
+  color: white;
+}
+
+.modal-footer button:last-child:hover {
+  background: #ff7300;
+}
+.cart-header span,
+.cart-row > span,
+.cart-row > div,
+.cart-row > button {
+    padding: 0 12px;
+}
+
+.cart-header span:not(:last-child),
+.cart-row > *:not(:last-child) {
+    border-right: 1px solid #3f3f3f;
+}
+.category-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+
+  scrollbar-width: none;
+}
+
+.category-list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-list button {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2d2d2d;
+  color: white;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: 0.25s;
+}
+
+.category-list button:hover {
+  background: #3b3b3b;
+}
+
+.active-category {
+  background: #95ff00 !important;
+  color: black !important;
+  font-weight: bold;
+}
+.menu-table {
+  background: #232323;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 500px;
+}
+.menu-table {
+  background: #232323;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 500px;
+}
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 100px;
+
+  align-items: center;
+
+  padding: 14px 22px;
+
+  background: #2b2b2b;
+
+  font-weight: 700;
+  color: #fff;
+
+  border-bottom: 1px solid #444;
 }
 .menu-items {
+  overflow-y: auto;
 
-    overflow-y:auto;
-
-    flex:1;
-
+  flex: 1;
 }
 
 /* Status Buttons */

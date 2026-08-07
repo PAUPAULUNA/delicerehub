@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Processing.css";
 import OrderCard from "../../components/shared/OrderCard";
 import OrderModal from "../../components/shared/OrderModal";
 import Add from "../../assets/add.png";
-import { useNavigate } from "react-router-dom";
 import tables from "../../pages/https/constants/utils/tables";
 import menu from "../../pages/https/constants/utils/menu";
 import MenuCard from "./MenuCard";
@@ -24,16 +23,103 @@ const Processing = () => {
     orderNumber: "",
     guests: 1,
     tableId: null,
+    items: [],
   });
 
   const [selectedCategory, setSelectedCategory] = useState(
     menu.length ? menu[0].category : "",
   );
-  const [cart, setCart] = useState([]);
 
   const activeCategory = menu.find((cat) => cat.category === selectedCategory);
 
-  
+  const addToCart = (item, size) => {
+    setOrderData((prev) => {
+      const existing = prev.items.find(
+        (i) => i.id === item.id && i.size === size.name,
+      );
+
+      if (existing) {
+        return {
+          ...prev,
+          items: prev.items.map((i) =>
+            i.id === item.id && i.size === size.name
+              ? {
+                  ...i,
+                  quantity: i.quantity + 1,
+                  subtotal: (i.quantity + 1) * i.price,
+                }
+              : i,
+          ),
+        };
+      }
+
+      return {
+        ...prev,
+        items: [
+          ...prev.items,
+          {
+            id: item.id,
+            name: item.name,
+            size: size.name,
+            price: size.price,
+            quantity: 1,
+            subtotal: size.price,
+          },
+        ],
+      };
+    });
+  };
+
+  const increaseQuantity = (id, size) => {
+    setOrderData((prev) => ({
+      ...prev,
+      items: prev.items.map((item) =>
+        item.id === id && item.size === size
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              subtotal: (item.quantity + 1) * item.price,
+            }
+          : item,
+      ),
+    }));
+  };
+
+  const decreaseQuantity = (id, size) => {
+    setOrderData((prev) => ({
+      ...prev,
+      items: prev.items
+        .map((item) =>
+          item.id === id && item.size === size
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+                subtotal: (item.quantity - 1) * item.price,
+              }
+            : item,
+        )
+        .filter((item) => item.quantity > 0),
+    }));
+  };
+
+  const removeItem = (id, size) => {
+    setOrderData((prev) => ({
+      ...prev,
+      items: prev.items.filter(
+        (item) => !(item.id === id && item.size === size),
+      ),
+    }));
+  };
+
+  const totalItems = orderData.items.length;
+
+  const totalQuantity = orderData.items.reduce(
+    (sum, item) => sum + item.quantity,
+    0,
+  );
+
+  const total = orderData.items.reduce((sum, item) => sum + item.subtotal, 0);
+
   return (
     <section className="process-order">
       <div className="order-taking">
@@ -56,9 +142,14 @@ const Processing = () => {
                   <div className="input-container">
                     <input
                       type="text"
-                      className="customer-name-input"
                       placeholder="Enter customer name"
-                      id=""
+                      value={orderData.customerName}
+                      onChange={(e) =>
+                        setOrderData((prev) => ({
+                          ...prev,
+                          customerName: e.target.value,
+                        }))
+                      }
                     />
                   </div>
                 </div>
@@ -68,9 +159,14 @@ const Processing = () => {
                     <div className="order-number-container">
                       <input
                         type="text"
-                        className="order-number-input"
-                        placeholder="Enter order number"
-                        id=""
+                        placeholder="Enter Order Number"
+                        value={orderData.orderNumber}
+                        onChange={(e) =>
+                          setOrderData((prev) => ({
+                            ...prev,
+                            orderNumber: e.target.value,
+                          }))
+                        }
                       />
                     </div>
                   </div>
@@ -103,7 +199,11 @@ const Processing = () => {
                     </button>
                   </div>
                 </div>
-                <button className="submit-btn" onClick={() => setStep(2)}>
+                <button
+                  className="submit-btn"
+                  disabled={!orderData.customerName || !orderData.orderNumber}
+                  onClick={() => setStep(2)}
+                >
                   Next
                 </button>
               </>
@@ -118,10 +218,10 @@ const Processing = () => {
                         disabled={table.status === "occupied"}
                         className={`table-card ${table.status} ${orderData.tableId === table.id ? "selected" : ""}`}
                         onClick={() =>
-                          setOrderData({
-                            ...orderData,
+                          setOrderData((prev) => ({
+                            ...prev,
                             tableId: table.id,
-                          })
+                          }))
                         }
                       >
                         <h3>{table.name}</h3>
@@ -175,17 +275,103 @@ const Processing = () => {
                   </div>
 
                   <div className="menu-items">
-                    {activeCategory &&
-                      activeCategory.items.map((item) => (
-                        <MenuCard key={item.id} item={item} />
-                      ))}
+                    {activeCategory?.items?.map((item) => (
+                      <MenuCard
+                        key={item.id}
+                        item={item}
+                        addToCart={addToCart}
+                      />
+                    ))}
                   </div>
                 </div>
 
                 <div className="modal-footer">
                   <button onClick={() => setStep(2)}>Back</button>
 
-                  <button onClick={() => setStep(4)}>Proceed to Cart</button>
+                  <div className="cart-summary">
+                    <div>
+                      <strong>Items</strong>
+                      <p>{totalItems}</p>
+                    </div>
+
+                    <div>
+                      <strong>Qty</strong>
+                      <p>{totalQuantity}</p>
+                    </div>
+
+                    <div>
+                      <strong>Total</strong>
+                      <p>₱{total.toFixed(2)}</p>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => setStep(4)}
+                    disabled={orderData.items.length === 0}
+                  >
+                    Proceed to Cart
+                  </button>
+                </div>
+              </>
+            )}
+            {step === 4 && (
+              <>
+                <div className="cart-table">
+                  <div className="cart-header">
+                    <span>Item</span>
+                    <span>Size</span>
+                    <span>Qty</span>
+                    <span>Price</span>
+                    <span>Subtotal</span>
+                    <span>Action</span>
+                  </div>
+
+                  <div className="cart-body">
+                    {orderData.items.map((item) => (
+                      <div className="cart-row" key={`${item.id}-${item.size}`}>
+                        <span>{item.name}</span>
+
+                        <span>{item.size}</span>
+
+                        <div className="qty-controls">
+                          <button
+                            onClick={() => decreaseQuantity(item.id, item.size)}
+                          >
+                            −
+                          </button>
+
+                          <span>{item.quantity}</span>
+
+                          <button
+                            onClick={() => increaseQuantity(item.id, item.size)}
+                          >
+                            +
+                          </button>
+                        </div>
+
+                        <span>₱{item.price.toFixed(2)}</span>
+
+                        <span>₱{item.subtotal.toFixed(2)}</span>
+
+                        <button
+                          className="remove-btn"
+                          onClick={() => removeItem(item.id, item.size)}
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="cart-total">
+                    <h3>Total: ₱{total.toFixed(2)}</h3>
+                  </div>
+                </div>
+
+                <div className="modal-footer">
+                  <button onClick={() => setStep(3)}>Back</button>
+
+                  <button>Submit Order</button>
                 </div>
               </>
             )}
